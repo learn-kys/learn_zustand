@@ -13,11 +13,12 @@ export default function Page() {
               {" "}
               {todo.isCompleted ? <del>{todo.text}:</del> : `${todo.text}:`}
             </b>{" "}
-            {todo.isCompleted ? "completed" : "not completed"}{" "}
+            {todo.isCompleted ? "completed" : "pending"}{" "}
           </p>
           <button type="button" onClick={() => toggleTodo(todo.id)}>
-            {todo.isCompleted ? "mark as completed" : "mark as Incompleted"}
+            {todo.isCompleted ? "mark as Incompleted" : "mark as completed"}
           </button>
+          <hr />
         </div>
       ))}
     </div>
