@@ -6,6 +6,7 @@ export default function Page() {
   const increaseTodo = useTodoStore((state) => state.increase);
   const decreaseTodo = useTodoStore((state) => state.decrease);
   const resetTodo = useTodoStore((state) => state.reset);
+  const increaseByAmount = useTodoStore((state) => state.increaseByAmount);
 
   return (
     <div>
@@ -18,6 +19,9 @@ export default function Page() {
       </button>
       <button type="button" onClick={resetTodo}>
         Reset
+      </button>
+      <button type="button" onClick={() => increaseByAmount(5)}>
+        increase by amount 5
       </button>
     </div>
   );

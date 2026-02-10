@@ -5,6 +5,7 @@ interface ITodoStore {
   increase: () => void;
   decrease: () => void;
   reset: () => void;
+  increaseByAmount: (amount: number) => void;
 }
 
 export const useTodoStore = create<ITodoStore>((set) => ({
@@ -12,4 +13,6 @@ export const useTodoStore = create<ITodoStore>((set) => ({
   increase: () => set((state) => ({ count: state.count + 1 })),
   decrease: () => set((state) => ({ count: state.count - 1 })),
   reset: () => set(() => ({ count: 0 })),
+  increaseByAmount: (amount: number) =>
+    set((state) => ({ count: state.count + amount })),
 }));
