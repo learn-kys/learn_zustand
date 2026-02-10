@@ -5,6 +5,15 @@ export default function Page() {
   const todos = useTodo((state) => state.todos);
   const toggleTodo = useTodo((state) => state.toggleTodo);
   const deleteTodo = useTodo((state) => state.deleteTodo);
+  const updateTodo = useTodo((state) => state.updateTodo);
+  const handleUpdate = (id: string) => {
+    const userInput = prompt("Enter todo name");
+    if (userInput !== null) {
+      updateTodo(id, userInput);
+    } else {
+      alert("user do not want to update");
+    }
+  };
   return (
     <div>
       {todos.map((todo) => (
@@ -19,6 +28,10 @@ export default function Page() {
           {/* toggle  */}
           <button type="button" onClick={() => toggleTodo(todo.id)}>
             {todo.isCompleted ? "mark as Incompleted" : "mark as completed"}
+          </button>
+          {/* update */}
+          <button type="button" onClick={() => handleUpdate(todo.id)}>
+            update
           </button>
           {/* delete */}
           <button type="button" onClick={() => deleteTodo(todo.id)}>
